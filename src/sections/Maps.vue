@@ -1,41 +1,63 @@
-<template>
-    <!-- <button @click="getLocation()">Get Location</button>
-    {{ lat }} , {{ lng }} -->
-</template>
-
-<script>
+<script setup>
 import { onMounted, ref } from "vue";
-// import L from "leaflet";
+import L from "leaflet";
 
 const lat = ref(0);
 const lng = ref(0);
 const map = ref();
 const mapContainer = ref();
-export default {
-    setup() {
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.watchPosition((position) => {
-                lat.value = position.coords.latitude;
-                lng.value = position.coords.longitude;
-                map.value.setView([lat.value, lng.value], 13);
 
-                L.marker([lat.value, lng.value],{draggable : true})
-                .addTo(map.value)
-                .on("dragend",(event)=> {
-                    console.log(event)
-                });
-                });
-            }
-        }
-        onMounted(() => {
-            map.value = L.map(mapContainer.value).setView([51.505, -0.09], 13);
-            L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                maxZoom: 19,
-                attribution:
-                '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            }).addTo(map.value);
-            });
-    }
+onMounted(() => {
+  map.value = L.map(mapContainer.value).setView([51.505, -0.09], 13);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(map.value);
+
+});
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition((position) => {
+      lat.value = position.coords.latitude;
+      lng.value = position.coords.longitude;
+      map.value.setView([lat.value, lng.value], 13);
+    
+    L.marker([lat.value, lng.value],{draggable : true})
+        .addTo(map.value)
+        .bindPopup("<p> Your Location </p>")
+        .openPopup();
+
+    L.marker([lat.value, lng.value],{draggable : true})
+      .addTo(map.value)
+      .on("dragend",(event)=> {
+          console.log(event)
+      });
+
+    });
+  }
 }
 </script>
+
+<template>
+  <div class="container mx-auto px-5 overflow-x-hidden lg:overflow-x-visible">
+    <section class="grid grid-cols-none lg:grid-cols-2 pb-16 pt-8 items-center">
+      <div class="lg:w-5/6 order-2 lg:order-none">
+        <button @click="getLocation()"  class="inline-block px-5 py-3 bg-gray-900 rounded-lg
+        shadow-lg text-white sm:text-base">Get Location</button>
+        {{ lat }} , {{ lng }}
+        </div>
+        <div class="">
+        <div ref="mapContainer" class="h-96 w-full p-9"></div>
+      </div>
+    </section>
+  </div>
+
+  
+
+  
+</template>
+
+<style scoped>
+</style>
