@@ -62,7 +62,7 @@ export default {
                     id: 2,
                     name: "Ipsum",
                     details: {
-                        imageUrl: "/images/map-marker.svg",
+                        imageUrl: "/images/maps-icon.svg",
                         title: "Lorem Ipsum",
                         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus commodi neque vel enim, fuga, expedita deserunt ex dolor at repudiandae reprehenderit veniam eveniet ab ipsum nam modi esse debitis numquam.",
                         link: "#",
@@ -72,7 +72,7 @@ export default {
                     id: 3,
                     name: "Dolar",
                     details: {
-                        imageUrl: "/images/map-marker.svg",
+                        imageUrl: "/images/earth-icon.svg",
                         title: "Lorem Ipsum",
                         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus commodi neque vel enim, fuga, expedita deserunt ex dolor at repudiandae reprehenderit veniam eveniet ab ipsum nam modi esse debitis numquam.",
                         link: "#",

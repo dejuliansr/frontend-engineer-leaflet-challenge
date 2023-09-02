@@ -8,7 +8,7 @@ const map = ref();
 const mapContainer = ref();
 
 onMounted(() => {
-  map.value = L.map(mapContainer.value).setView([51.505, -0.09], 13);
+  map.value = L.map(mapContainer.value).setView([-6.9252475, 107.6185948], 13);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution:
@@ -42,22 +42,17 @@ function getLocation() {
 
 <template>
   <div class="container mx-auto px-5 overflow-x-hidden lg:overflow-x-visible">
-    <section class="grid grid-cols-none lg:grid-cols-2 pb-16 pt-8 items-center">
-      <div class="lg:w-5/6 order-2 lg:order-none">
+    <h1 class="text-3xl text-center font-semibold">Find Your Location</h1>
+    <section class="grid grid-cols-none lg:grid-cols-2 lg:p-20 items-center">
+      <div class="lg:w-5/6 order-2 lg:order-none lg:text-center p-10">
         <button @click="getLocation()"  class="inline-block px-5 py-3 bg-gray-900 rounded-lg
         shadow-lg text-white sm:text-base">Get Location</button>
-        {{ lat }} , {{ lng }}
+        <div class="text-2xl p-8 sm:text-xl">
+          <p>Latitude : {{ lat }}</p>
+          <p>Longitude : {{ lng }}</p>
         </div>
-        <div class="">
-        <div ref="mapContainer" class="h-96 w-full p-9"></div>
       </div>
+      <div ref="mapContainer" class="relative h-96 w-full p-9"></div>
     </section>
   </div>
-
-  
-
-  
 </template>
-
-<style scoped>
-</style>
