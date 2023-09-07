@@ -4,15 +4,10 @@
             <div class="grid md:grid-cols-2">
                 <div class="flex flex-col md:flex-row md:space-x-12 items-center">
                     <ul class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-8 text-xs text-center md:text-left font-theme-heading">
-                        <li class="uppercase text-white hover:text-theme-secondary transition duration-200">
-                            <a href="#">Home</a>
+                        <li class="uppercase text-white hover:text-theme-secondary transition duration-200" v-for="link in Links" :key="link.name">
+                            <a :href="link.link">{{ link.name }}</a>
                         </li>
-                        <li class="uppercase text-white hover:text-theme-secondary transition duration-200">
-                            <a href="#">Features</a>
-                        </li>
-                        <li class="uppercase text-white hover:text-theme-secondary transition duration-200">
-                            <a href="#">Maps</a>
-                        </li>
+                        
                     </ul>
                 </div>
                 <div class="md:place-self-end place-self-center mt-10 md:mt-0">
@@ -35,7 +30,16 @@
 
 <script>
 export default {
-
+    setup() {
+        let Links = [
+            {name: "Home", link: "#home"},
+            {name: "Features", link: "#feature"},
+            {name: "Maps", link: "#mapsection"},
+        ]
+    return{
+      Links,
+    }
+    }
 }
 </script>
 

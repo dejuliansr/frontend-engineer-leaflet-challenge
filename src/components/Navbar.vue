@@ -26,9 +26,9 @@ export default {
   setup(){
     let open = ref(false)
     let Links = [
-      {name: "Home", link: "#"},
-      {name: "Features", link: "#"},
-      {name: "Maps", link: "#"},
+      {name: "Home", link: "#home"},
+      {name: "Features", link: "#feature"},
+      {name: "Maps", link: "#mapsection"},
     ]
 
     function menuopen(){
