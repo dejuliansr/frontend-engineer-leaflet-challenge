@@ -1,7 +1,7 @@
 <template>
   <!-- Features Section Start -->
-    <div class="container mx-auto px-5">
-        <section class="py-16">
+    <div id="feature" class="container mx-auto px-5">
+        <section>
             <div class="w-4/5 md:w-3/5 mx-auto">
                 <h2 class="text-3xl md:text-4xl font-semibold font-theme-heading text-center">Features</h2>
                 <p class="text-theme-grayish-blue text-center mt-7 font-theme-content text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus commodi neque vel enim, fuga, expedita deserunt ex dolor at repudiandae reprehenderit veniam eveniet ab ipsum nam modi esse debitis numquam.</p>
@@ -9,7 +9,7 @@
 
             <div class="mt-10">
                 <ul class="flex flex-col items-center md:flex-row justify-center font-theme-heading">
-                    <li v-for="feature in features" :key="feature.id" :class="isOpen === feature.id ? 'md:border-b-4 md:border-theme-secondary' : ''" class="w-full md:w-56 cursor-pointer hover:text-theme-secondary hover:bg-gray-200 transition duration-200  border-t-2 lg:border-gray-900 md:border-t-0 flex justify-center">
+                    <li v-for="feature in features" :key="feature.id" :class="isOpen === feature.id ? 'md:border-b-4 md:border-theme-secondary' : ''" class="w-full md:w-56 cursor-pointer hover:text-theme-secondary hover:bg-gray-200 transition duration-200 border-t-2 lg:border-gray-900 md:border-t-0 flex justify-center">
                         <a @click.prevent="isOpen = feature.id" href="#" :class="isOpen === feature.id ? ' border-theme-secondary' : ''" class="py-5  md:border-b-0 border-b-4">{{ feature.name }}</a>
                     </li>
                 </ul>

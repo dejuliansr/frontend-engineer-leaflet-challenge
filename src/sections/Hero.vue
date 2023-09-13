@@ -1,5 +1,5 @@
 <template>
-    <div id="features" class="container mx-auto px-5 max-w-md sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full">
+    <div id="home" class="container mx-auto px-5 max-w-md sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full">
         <div class="lg:p-12 my-auto">
             <img src="/images/map-marker.svg" alt="" class="mt-4 rounded-xl shadow-xl
             sm:mt-6 sm:h-64 sm:w-full lg:hidden">
