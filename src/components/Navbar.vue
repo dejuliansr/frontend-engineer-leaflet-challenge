@@ -2,7 +2,7 @@
   <div class="bg-gray-900 text-gray-100 py-3.5 px-6 md:flex justify-between items-center ">
     <div class="flex items-center">
         <span class="text-gray-300 text-3xl mr-1">
-            Challange
+          Leaflet Challange
         </span>
     </div>
 
@@ -15,14 +15,22 @@
       <li class="md:mx-4 md:my-0 my-6" v-for="link in Links" :key="link.name">
         <a :href="link.link" class="text-xl hover:text-gray-400 hover:border-b-2">{{ link.name }}</a>
       </li>
-      
+      <li class="md:mx-4 md:my-0 my-6">
+        <router-link to="/login">Sign In</router-link>
+      </li>
+      <li class="md:mx-4 md:my-0 my-6">
+        <a class="text-xl hover:text-gray-400 cursor-pointer" @click="logout"> Logout </a>
+      </li>
     </ul>
   </div>
+  <router-view/>
 </template>
 
 <script>
 import { ref } from 'vue'
+import AboutView from '@/views/AboutView.vue'
 export default {
+  components: { AboutView },
   setup(){
     let open = ref(false)
     let Links = [
@@ -39,6 +47,17 @@ export default {
       Links,
       open,
       menuopen,
+    }
+  },
+  computed: {
+    login: function(){
+      
+    }
+  },
+  methods:{
+    logout(){
+      localStorage.clear();
+      this.$router.push({name:'Login'})
     }
   }
 }

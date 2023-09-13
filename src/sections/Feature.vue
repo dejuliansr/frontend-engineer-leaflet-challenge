@@ -2,7 +2,7 @@
   <!-- Features Section Start -->
     <div id="feature" class="container mx-auto px-5">
         <section>
-            <div class="w-4/5 md:w-3/5 mx-auto">
+            <div zclass="w-4/5 md:w-3/5 mx-auto">
                 <h2 class="text-3xl md:text-4xl font-semibold font-theme-heading text-center">Features</h2>
                 <p class="text-theme-grayish-blue text-center mt-7 font-theme-content text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus commodi neque vel enim, fuga, expedita deserunt ex dolor at repudiandae reprehenderit veniam eveniet ab ipsum nam modi esse debitis numquam.</p>
             </div>
