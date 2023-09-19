@@ -6,13 +6,13 @@ import SignUp from '../views/SignUp.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  }, 
-  {
-    path: '/login',
     name: 'Login',
     component: Login
+  }, 
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home
   },
   {
     path: '/signup',
@@ -20,6 +20,8 @@ const routes = [
     component: SignUp
   },
 ]
+
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

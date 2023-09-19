@@ -15,12 +15,9 @@
       <li class="md:mx-4 md:my-0 my-6" v-for="link in Links" :key="link.name">
         <a :href="link.link" class="text-xl hover:text-gray-400 hover:border-b-2">{{ link.name }}</a>
       </li>
-      <li class="md:mx-4 md:my-0 my-6">
-        <router-link to="/login">Sign In</router-link>
-      </li>
-      <li class="md:mx-4 md:my-0 my-6">
-        <a class="text-xl hover:text-gray-400 cursor-pointer" @click="logout"> Logout </a>
-      </li>
+      <!-- <li class="md:mx-4 md:my-0 my-6">
+        <a class="text-xl hover:text-gray-400 cursor-pointer" @submit.prevent="Logout" >Logout </a>
+      </li> -->
     </ul>
   </div>
   <router-view/>
@@ -28,10 +25,11 @@
 
 <script>
 import { ref } from 'vue'
-import AboutView from '@/views/AboutView.vue'
+import { useUserStore } from '../store/user';
+
 export default {
-  components: { AboutView },
   setup(){
+    const userStore = { useUserStore };
     let open = ref(false)
     let Links = [
       {name: "Home", link: "#home"},
@@ -47,18 +45,15 @@ export default {
       Links,
       open,
       menuopen,
+      userStore
     }
+    
   },
-  computed: {
-    login: function(){
-      
-    }
-  },
-  methods:{
-    logout(){
-      localStorage.clear();
-      this.$router.push({name:'Login'})
-    }
-  }
+  // methods:{
+  //   Logout(){
+  //     localStorage.clear();
+  //     this.$router.push('/')
+  //   }
+  // },
 }
 </script>
