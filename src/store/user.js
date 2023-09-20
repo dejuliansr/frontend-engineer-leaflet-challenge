@@ -5,10 +5,12 @@ export const useUserStore = defineStore("user", {
   state: () => ({
     email: '',
     password: '',
+    isLoading: false,
   }),
 
   actions:{
     async Login(){
+      this.isLoading = true;
       const res = await fetch("https://telematics.transtrack.id/api/login?email=" +this.email+"&password="+this.password, {
         method: "POST",
       });
@@ -22,6 +24,7 @@ export const useUserStore = defineStore("user", {
       else{
         alert('Error!! Invalid Email or Password')
       }
+      this.isLoading = false;
     },
   },
 });

@@ -48,12 +48,6 @@ export default {
       userStore
     }
     
-  },
-  // methods:{
-  //   Logout(){
-  //     localStorage.clear();
-  //     this.$router.push('/')
-  //   }
-  // },
+  }
 }
 </script>

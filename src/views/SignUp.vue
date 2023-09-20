@@ -7,7 +7,7 @@
             </a>
             <div class="w-full rounded-lg shadow md:mt-0 sm:max-w-md lg:p-0 bg-gray-800 ">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <router-link to="/" class="bi bi-house-door-fill text-white"> Home</router-link>
+                    <!-- <router-link to="/" class="bi bi-house-door-fill text-white"> Home</router-link> -->
                     <h1 class="text-xl font-bold leading-tight md:text-2xl text-white">
                         Sign Up
                     </h1>
@@ -23,7 +23,7 @@
                         </div>
                         <button @click="signup" class="w-full text-white hover:bg-rose-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign Up</button>
                         <p class="text-sm font-light text-gray-400">
-                            Already have an account? <router-link to="/login" class="font-medium hover:underline"> Sign In</router-link>
+                            Already have an account? <router-link to="/" class="font-medium hover:underline"> Sign In</router-link>
                         </p>
                     </form>
                 </div>

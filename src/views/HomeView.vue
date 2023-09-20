@@ -18,12 +18,6 @@ export default {
     Navbar,
     Main,
     Footer,
-  },
-  // mounted(){
-  //   let user = localStorage.getItem('user-info')
-  //   if(!user){
-  //       this.$router.push({name: 'Login'})
-  //   }
-  // }
+  }
 }
 </script>
