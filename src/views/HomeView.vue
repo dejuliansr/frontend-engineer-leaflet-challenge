@@ -3,7 +3,7 @@
 
   <Main />
 
-  <Footer />
+  <!-- <Footer /> -->
 </template>
 
 

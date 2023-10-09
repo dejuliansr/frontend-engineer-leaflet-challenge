@@ -1,7 +1,7 @@
 <template>
-  <!-- Features Section Start -->
-    <div id="feature" class="container mx-auto px-5">
-        <section>
+<div id="feature" class="p-4 sm:ml-64">
+   <div class="p-4 border-gray-200 border-dashed rounded-lg mt-14 flex">
+      <section>
             <div zclass="w-4/5 md:w-3/5 mx-auto">
                 <h2 class="text-3xl md:text-4xl font-semibold font-theme-heading text-center">Features</h2>
                 <p class="text-theme-grayish-blue text-center mt-7 font-theme-content text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus commodi neque vel enim, fuga, expedita deserunt ex dolor at repudiandae reprehenderit veniam eveniet ab ipsum nam modi esse debitis numquam.</p>
@@ -16,7 +16,6 @@
             </div>
 
             <div class="mt-16">
-                <!-- Tab Content -->
                 <template v-for="feature in features" :key="feature.id">
                     <div v-show="isOpen === feature.id" class="grid gap-32 lg:grid-cols-2 items-center lg:px-32 lg:-mt-10">
                         <div class="relative">
@@ -31,7 +30,8 @@
                 </template>
             </div>
         </section>
-    </div>
+   </div>
+</div>
 </template>
 
 <script>
@@ -39,8 +39,7 @@ import { ref } from 'vue';
 
 export default {
     setup(){
-        let isOpen = ref(1);
-
+        let isOpen = ref(1)
         return{
             isOpen,
         }

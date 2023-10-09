@@ -1,14 +1,18 @@
 <template>
-  <div id="mapsection" class="container mx-auto overflow-x-hidden lg:overflow-x-visible p-10">
-    <h1 class="text-3xl text-center font-semibold pb-10">Find Your Location</h1>
-    <div id="map" class="relative h-96 lg:h-[600px] w-full"></div>
-    <div>
-    <div class="grid lg:grid-cols-2 ">
-      <div class="p-8 order-2 lg:order-none">
-        <button @click="getLocation()"  class="inline-block px-5 py-3 bg-gray-900 rounded-lg
-        shadow-lg text-white sm:text-base">Marker</button>
+  <div class="sm:ml-64">
+    <div class="flex">
+      <div id="mapsection" class="container mx-auto overflow-x-hidden lg:overflow-x-visible ">
+        <h1 class="text-3xl text-center font-semibold pb-10">Find Location</h1>
+        <div id="map" class="relative h-96 lg:h-[600px] w-full"></div>
+        <div>
+        <div class="grid lg:grid-cols-2 ">
+          <div class="p-8 order-2 lg:order-none">
+            <button @click="getLocation()"  class="inline-block px-5 py-3 bg-gray-900 rounded-lg
+            shadow-lg text-white sm:text-base">Marker</button>
+          </div>
+        </div>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
