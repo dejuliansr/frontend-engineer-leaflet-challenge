@@ -16,7 +16,7 @@
     </div>
   </nav>
 
-  <aside class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+  <aside :class="{ 'fixed -translate-x-0': sidebar}" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
       <ul class="space-y-2 font-medium">
         <li>
@@ -38,7 +38,7 @@
           </a>
         </li>
         <li>
-          <button @click="device.GetDevice(); open = !open" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-rose-700">
+          <button @click="device.getDevice(); open = !open" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-rose-700">
                 <i class="bi bi-phone-fill flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
                 <span class="flex-1 ml-3 text-left whitespace-nowrap">List Device</span>
                 <i class="bi bi-chevron-down"></i>
@@ -48,7 +48,7 @@
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
             </svg>
-            <li v-for="list in device.ListDevice" :key="list.id">
+            <li v-for="list in device.listDevice" :key="list.id">
               <div class="flex text-gray-900 transition duration-75 rounded-lg pl-11 dark:text-white dark:hover:bg-gray-700">
                 <a href="#">
                   <p>Name {{ list.name }}</p>
@@ -66,10 +66,13 @@
 
 <script>
 import { useDisplaysStore } from '../store/store'
+
+import { ref } from "vue"
 export default {
   setup(){
     const device = useDisplaysStore()
-    return {device}
+    const sidebar = ref(false)
+    return {device,sidebar}
   },
   data(){
     return{

@@ -15,16 +15,16 @@ export const useUserStore = defineStore("user", {
         method: "POST",
       });
       const user = await res.json()
-      console.log(user)
       const status = res.status
    
       if(status == 200){
+        localStorage.setItem("token", user.user_api_hash)
         router.push('/home')
       }
       else{
         alert('Error!! Invalid Email or Password')
       }
       this.isLoading = false;
-    },
+    }
   },
 });
