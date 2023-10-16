@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start">
           <span class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
               </svg>
           </span>
@@ -41,12 +41,12 @@
           </a>
         </li>
         <li>
-          <button @click="show = !show" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-rose-700">
+          <button @click="showDropdown = !showDropdown" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-rose-700">
                 <i class="bi bi-phone-fill flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
                 <span class="flex-1 ml-3 text-left whitespace-nowrap">List Device</span>
                 <i class="bi bi-chevron-down"></i>
           </button>
-          <ul v-if="show" class="py-2 space-y-2">
+          <ul v-if="showDropdown" class="py-2 space-y-2">
             <li>
               <div class="flex text-gray-900 cursor-pointer transition duration-75 rounded-lg pl-11 dark:text-white dark:hover:bg-gray-700">
                 <a @click="getLocation()">Your Location</a>
@@ -85,7 +85,7 @@ const map = ref(null)
 const mapContainer = ref(null)
 const lat = ref(0)
 const lng = ref(0)
-const show = ref(false)
+const showDropdown = ref(false)
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -111,9 +111,17 @@ onMounted(() => {
     }).addTo(map.value)
     L.control.locate().addTo(map.value)
     L.Control.geocoder().addTo(map.value)
+    var redIcon = new L.Icon({
+      iconUrl: '/images/marker-icon-red.png',
+       shadowUrl: '/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
     display.listDevice.forEach(device => {
       const deviceLatLng = [device.lat, device.lng]
-      L.marker(deviceLatLng)
+      L.marker(deviceLatLng, {icon:redIcon})
         .addTo(map.value)
     });
   });
