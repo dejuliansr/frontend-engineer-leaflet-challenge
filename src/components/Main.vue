@@ -13,7 +13,7 @@ import Feature from "../sections/Feature.vue"
 
 export default {
     components: {
-        Hero,Maps,Feature,
+        Hero,Maps,Feature
     }
 }
 </script>

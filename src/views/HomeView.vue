@@ -1,9 +1,9 @@
 <template>
-  <Navbar />
+  <!-- <Navbar /> -->
 
   <Main />
 
-  <Footer />
+  <!-- <Footer /> -->
 </template>
 
 
